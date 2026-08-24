@@ -1,6 +1,3 @@
-# Ссылки на App Store или голые App ID — по одной на строку.
-# Строки, начинающиеся с #, и пустые строки игнорируются.
-#
-# Примеры:
-# https://apps.apple.com/us/app/telegram-messenger/id686449807
-# 389801252
+https://apps.apple.com/ru/app/id6795951330
+https://apps.apple.com/us/app/chatgpt/id6448311069
+https://apps.apple.com/us/app/brawl-stars/id1229016807
