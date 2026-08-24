@@ -1,0 +1,35 @@
+name: Update app registry
+
+on:
+  schedule:
+    # 06:00, 14:00, 22:00 UTC — три запуска в сутки.
+    # Время в UTC, не забудь пересчитать под свой часовой пояс при желании.
+    - cron: "0 6,14,22 * * *"
+  workflow_dispatch: {}  # позволяет запускать вручную из вкладки Actions
+
+permissions:
+  contents: write  # нужно, чтобы workflow мог закоммитить обновлённый apps.csv
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Update registry
+        run: python update_apps.py
+
+      - name: Commit and push if changed
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: автообновление реестра приложений"
+          file_pattern: apps.csv
