@@ -1,3 +1,5 @@
+[**English**](https://github.com/nncat01/app-store-checker/blob/main/README.en.md) | **Русский**
+
 # App Store Checker
 Автоматически обновляемый список приложений из App Store (в основном российских) в виде **`.csv`** таблицы, который содержит:
 - Название в App Store 
