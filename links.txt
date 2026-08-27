@@ -1,4 +1,3 @@
-commit: WB Apps
-https://apps.apple.com/ru/app/wildberries/id597880187
-https://apps.apple.com/us/app/wb-chat/id6747973915
+commit: Минкомсвязь РФ
+https://apps.apple.com/ru/developer/%D0%BC%D0%B8%D0%BD%D0%BA%D0%BE%D0%BC%D1%81%D0%B2%D1%8F%D0%B7%D1%8C-%D1%80%D1%84/id1367959793
 
