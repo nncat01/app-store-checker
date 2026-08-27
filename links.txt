@@ -1,3 +1,15 @@
-https://apps.apple.com/ru/app/id6795951330
-https://apps.apple.com/us/app/chatgpt/id6448311069
-https://apps.apple.com/us/app/brawl-stars/id1229016807
+# Ссылки на App Store, App ID или ссылки на страницу разработчика —
+# по одной на строку. Строки, начинающиеся с #, и пустые строки
+# игнорируются.
+#
+# Комментарий к одному приложению:
+#   <ссылка> commit: текст комментария
+#
+# Комментарий сразу для группы (действует до первой пустой строки):
+#   commit: текст для группы
+#   <ссылка 1>
+#   <ссылка 2>
+#
+# Примеры:
+# https://apps.apple.com/us/app/telegram-messenger/id686449807 commit: мессенджер
+# https://apps.apple.com/us/developer/yandex-llc/id313877522 commit: всё от Яндекса
