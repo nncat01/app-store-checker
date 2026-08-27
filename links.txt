@@ -1,15 +1,76 @@
-# Ссылки на App Store, App ID или ссылки на страницу разработчика —
-# по одной на строку. Строки, начинающиеся с #, и пустые строки
-# игнорируются.
-#
-# Комментарий к одному приложению:
-#   <ссылка> commit: текст комментария
-#
-# Комментарий сразу для группы (действует до первой пустой строки):
-#   commit: текст для группы
-#   <ссылка 1>
-#   <ссылка 2>
-#
-# Примеры:
-# https://apps.apple.com/us/app/telegram-messenger/id686449807 commit: мессенджер
-# https://apps.apple.com/us/developer/yandex-llc/id313877522 commit: всё от Яндекса
+commit: WB Apps
+https://apps.apple.com/ru/app/wildberries/id597880187
+https://apps.apple.com/us/app/wb-chat/id6747973915
+https://apps.apple.com/ru/app/wb-stream/id1645878877
+https://apps.apple.com/ru/app/wb-taxi-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81-%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0-%D1%82%D0%B0%D0%BA%D1%81%D0%B8/id6755240054
+https://apps.apple.com/ru/app/wb-drive/id1641368376
+https://apps.apple.com/tr/app/wibes-%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE-%D1%82%D1%80%D0%B5%D0%BD%D0%B4%D1%8B-%D0%B8-%D1%88%D0%BE%D0%BF%D0%B8%D0%BD%D0%B3/id6739610878
+https://apps.apple.com/ru/app/myteam-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BB%D1%8F-%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D1%8B/id1529848430
+https://apps.apple.com/ru/app/wb-go/id1665887343
+https://apps.apple.com/ru/app/wb-job/id1499529976
+https://apps.apple.com/ru/app/wb-partners/id1661093227
+https://apps.apple.com/ru/app/wb-point/id1528507238
+https://apps.apple.com/ru/app/wb-travel/id1507759014
+https://apps.apple.com/ru/app/wb-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/id6739949061 #WB книги
+https://apps.apple.com/ru/app/wb-%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80/id6444680258 #WB Курьер 
+https://apps.apple.com/ru/app/wb-%D0%BF%D0%B2%D0%B7/id6745411712 #WB ПВЗ
+https://apps.apple.com/ru/app/wb-%D0%BD%D0%B0-%D1%81%D0%B2%D1%8F%D0%B7%D0%B8/id1573234597 #WB на связи
+
+commit: Ozon Apps
+https://apps.apple.com/tr/app/ozon-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D1%8B-%D0%BE%D0%B4%D0%B5%D0%B6%D0%B4%D0%B0-%D0%B8-%D0%BE%D0%B1%D1%83%D0%B2%D1%8C/id407804998
+https://apps.apple.com/ru/app/ozon-%D1%81%D0%B5%D0%BB%D0%B5%D0%BA%D1%82-%D0%B1%D1%80%D0%B5%D0%BD%D0%B4%D0%BE%D0%B2%D1%8B%D0%B5-%D1%82%D0%BE%D0%B2%D0%B0%D1%80%D1%8B/id6745216294 #Ozon Селект
+https://apps.apple.com/ru/app/ozon-travel-%D0%BE%D1%82%D0%B5%D0%BB%D0%B8-%D0%B0%D0%B2%D0%B8%D0%B0-%D0%B8-%D0%B6%D0%B4/id959592459
+https://apps.apple.com/tr/app/ozon-%D0%B1%D0%B0%D0%BD%D0%BA/id1629869891 #Ozon Банк
+https://apps.apple.com/ru/app/ozon-%D0%B1%D0%B0%D0%BD%D0%BA-%D0%B4%D0%BB%D1%8F-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0/id1601989299 #Ozon Банк для Бизнеса 
+https://apps.apple.com/ru/app/%D0%BF%D1%83%D0%BD%D0%BA%D1%82-ozon/id1535791151 #Пункт Ozon
+https://apps.apple.com/ru/app/ozon-%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80-%D1%8D%D0%BA%D1%81%D0%BF%D1%80%D0%B5%D1%81%D1%81/id6458101936 #Ozon Курьер
+https://apps.apple.com/ru/app/ozon-check-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D1%8B/id6742407316
+https://apps.apple.com/ru/app/ozon-job/id6498711171
+https://apps.apple.com/ru/app/ozon-profit/id6753204673
+https://apps.apple.com/ru/app/%D0%B2%D0%BE%D0%B7%D0%B8-ozon/id6478118390 #Вози Ozon
+https://apps.apple.com/ru/app/ozon-seller-%D0%B4%D0%BB%D1%8F-%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B2%D1%86%D0%BE%D0%B2/id1501167158
+https://apps.apple.com/ru/app/%D1%8D%D0%BA%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B5%D1%82-ozon-travel/id6759052688 #Экстранет Ozon Travel
+
+Commit: Government Apps
+https://apps.apple.com/ru/app/%D0%B3%D0%BE%D1%81%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8/id1367959794 #Госуслуги
+https://apps.apple.com/ru/app/ruid/id6745255593
+https://apps.apple.com/ru/app/%D0%B3%D0%BE%D1%81%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8-%D0%B2%D0%BE%D0%BB%D0%BE%D0%BD%D1%82%D1%91%D1%80/id6743647596 #Волонтёр
+
+
+LiveContainer Tools
+https://apps.apple.com/us/app/localdevvpn/id6755608044
+
+Commit Yandex Apps
+https://apps.apple.com/us/app/yandex-with-alice-ai/id1050704155
+https://apps.apple.com/us/app/yandex-browser-with-alice-ai/id483693909
+https://apps.apple.com/us/app/yandex-maps-navigator/id313877526
+https://apps.apple.com/us/app/yandex-navi-navigation-maps/id474500851
+https://apps.apple.com/us/app/yandex-metro/id392589075
+https://apps.apple.com/us/app/yandex-mail/id441785419
+https://apps.apple.com/us/app/yandex-translate/id584291439
+https://apps.apple.com/us/app/yandex-disk-secure-storage/id553266487
+https://apps.apple.com/us/app/yandex-internetometer/id6756872255
+https://apps.apple.com/us/app/alice-ai-assistant/id6621272550
+https://apps.apple.com/us/app/%D0%B4%D0%B5%D0%BB%D0%B8%D0%B2%D0%B5%D1%80%D0%B8-%D0%B5%D0%B4%D0%B0-%D0%B8-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D1%8B/id436145623 #Деливери
+https://apps.apple.com/us/app/%D0%B4%D0%BE%D0%BC-%D1%81-%D0%B0%D0%BB%D0%B8%D1%81%D0%BE%D0%B9/id1582810683 #Дом с Алисой
+https://apps.apple.com/us/app/%D1%81%D0%B2%D0%BE%D0%B8-%D0%BF%D0%BB%D1%8E%D1%81%D1%8B-%D0%B5%D0%B4%D0%B0%D0%B4%D0%B8%D0%BB-%D0%BA%D1%83%D0%BF%D0%BE%D0%BD%D1%8B/id700569948 #Едалил
+https://apps.apple.com/us/app/%D0%BA%D0%B8%D0%BD%D0%BE%D0%BF%D0%BE%D0%B8%D1%81%D0%BA-%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%D1%8B-%D1%81%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B-%D1%82%D0%B2/id477718890 #Кинопоиск
+https://apps.apple.com/us/app/shedevrum/id1671837122 #
+https://apps.apple.com/us/app/yandex-travel-booking-hotels/id1632443454
+https://apps.apple.com/us/app/yandex-go-taxi-food-delivery/id472650686
+https://apps.apple.com/us/app/yandex-id-2fa-authenticator/id957324816
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B0%D0%BF%D1%82%D0%B5%D0%BA%D0%B8-%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7-%D0%BB%D0%B5%D0%BA%D0%B0%D1%80%D1%81%D1%82%D0%B2/id1438655106 #Яндекс аптеки
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B0%D1%80%D0%B5%D0%BD%D0%B4%D0%B0/id1638372880 #Яндекс Аренда
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B0%D1%84%D0%B8%D1%88%D0%B0-%D0%B1%D0%B8%D0%BB%D0%B5%D1%82%D1%8B-%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D1%8F/id1119361771 #Яндекс Афиша
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B1%D0%B0%D0%B9%D0%BA/id6749844556 # Яндекс Байк
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B1%D1%80%D0%B0%D1%83%D0%B7%D0%B5%D1%80-%D0%B4%D0%BB%D1%8F-%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9/id6742537534 #Браузер для организаций
+https://apps.apple.com/us/app/yandex-direct/id583627331
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B4%D1%80%D0%B0%D0%B9%D0%B2-%D0%BA%D0%B0%D1%80%D1%88%D0%B5%D1%80%D0%B8%D0%BD%D0%B3/id1318875022 #Яндекс Драйв
+https://apps.apple.com/us/app/yandex-eats-food-delivery/id1078986931
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B7%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B8/id963153237 #Яндекс заправки
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8/id1559549371 #Яндекс Исполнители
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D0%B8-%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D1%8B/id1537579597 #Яндекс Исполнители Заказы
+https://apps.apple.com/us/app/yandex-calendar/id6621180502 
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%BA%D0%BB%D0%B0%D0%B2%D0%B8%D0%B0%D1%82%D1%83%D1%80%D0%B0/id1053139327 #Яндекс клавиатура
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8-%D1%87%D0%B8%D1%82%D0%B0%D1%82%D1%8C-%D0%B8-%D1%81%D0%BB%D1%83%D1%88%D0%B0%D1%82%D1%8C/id6443391664 #Яндекс Книги
+https://apps.apple.com/us/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D0%BB%D0%B0%D0%B2%D0%BA%D0%B0-%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2/id1515819287 #Яндекс Лавка
