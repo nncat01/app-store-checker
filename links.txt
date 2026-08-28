@@ -1,3 +1,38 @@
-commit: Минкомсвязь РФ
-https://apps.apple.com/ru/developer/%D0%BC%D0%B8%D0%BD%D0%BA%D0%BE%D0%BC%D1%81%D0%B2%D1%8F%D0%B7%D1%8C-%D1%80%D1%84/id1367959793
+https://apps.apple.com/ru/developer/%D0%BC%D0%B8%D0%BD%D0%BA%D0%BE%D0%BC%D1%81%D0%B2%D1%8F%D0%B7%D1%8C-%D1%80%D1%84/id1367959793 #Минкомсвязь РФ Account
+
+https://apps.apple.com/ru/developer/wildberries-ooo/id597880210 #WB
+https://apps.apple.com/ru/developer/wb-fze/id1763850349 #WB
+
+https://apps.apple.com/ru/developer/direct-cursus-computer-systems-trading/id1717598015 #Яндекс
+https://apps.apple.com/ru/developer/mikromobilnost-doo/id1710544560 #Яндекс
+https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D1%87%D0%B0%D0%B5%D0%B2%D1%8B%D0%B5-%D0%BD%D0%B0-%D0%BA%D0%B0%D1%80%D1%82%D1%83-%D0%BF%D0%BE-qr/id1513175603 #Яндекс Чаевые
+
+https://apps.apple.com/ru/developer/ozon-ru/id407805001 #OZOM
+https://apps.apple.com/ru/developer/ozon-marketpleis-kazakhstan-too/id1818775178 #OZOM
+
+https://apps.apple.com/ru/app/%D0%BA%D0%B8%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BC/id6753332416 commit: Movix
+https://apps.apple.com/ru/app/%D0%BE%D0%BA%D0%B5%D0%B9-%D0%B3%D0%B8%D0%BF%D0%B5%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D1%8B-%D0%B8-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/id1087812169 commit: Лента
+https://apps.apple.com/ru/app/%D0%B0%D0%BB%D0%BC%D0%B0%D0%B7%D0%BD%D0%B0%D1%8F-%D0%BC%D0%B8%D0%BB%D1%8F/id6796619816 commit: Авиокомпания АЛРОСА
+https://apps.apple.com/ru/app/%D1%88%D0%BA%D0%BE%D0%BB%D0%B0-%D0%B8%D0%BD%D0%B2%D0%B5%D1%81%D1%82%D0%BE%D1%80%D0%B0/id6767516632 commit: Альфа-Капитал
+https://apps.apple.com/ru/app/%D0%BA%D0%BE%D1%80%D0%BF%D0%BE%D1%80%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9-%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82-%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0/id6759156206 commit: Дом Ру Бизнес
+https://apps.apple.com/ru/app/lunarcode/id6764754827 commit: Новикомбанк
+https://apps.apple.com/ru/app/%D0%BB%D1%91%D0%B3%D0%BA%D0%BE/id6789156920 commit: Лента
+https://apps.apple.com/ru/app/%D1%8F%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B0-%D0%B4%D0%BE%D0%BC%D0%B0/id6781311617 commit: Своё | Родное
+https://apps.apple.com/ru/app/%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C-%D1%83%D0%BC%D0%BD%D1%8B%D0%B9-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA/id6746786886 commit: Рамблер & Сбер Диск
+https://apps.apple.com/ru/app/%D1%87%D0%B5%D1%80%D0%BD%D0%B8%D0%BA%D0%B0-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id6776650255 commit: СургутНефтеГазБанк
+https://apps.apple.com/ru/app/pianowave/id6773297506 commit: Premier
+https://apps.apple.com/ru/app/slicingdices/id6766530710 commit: Rutube
+https://apps.apple.com/ru/app/%D0%B1%D0%B0%D0%BA-%D0%B1%D0%BE%D0%BD%D1%83%D1%81/id6756371742 commit: Бак+Бонус
+https://apps.apple.com/ru/app/billfo/id6759976509 commit: Газпром Инвестиции
+https://apps.apple.com/ru/app/%D1%82%D1%80%D0%B0%D0%BA%D1%82%D0%BE%D1%80%D0%BD%D1%8B%D0%B9-%D0%BA%D0%BB%D1%83%D0%B1/id6761844867 commit: РСХБ Бизнес
+https://apps.apple.com/ru/app/starship-battle-commander/id6760892177 commit: Rutube
+https://apps.apple.com/ru/app/%D0%BF%D1%80%D0%BE%D1%81%D0%BA%D0%BE%D1%80%D0%BE%D1%81%D1%82%D1%8C/id6754636283 commit: ДомРУ
+https://apps.apple.com/ru/app/%D1%80%D1%83%D0%B1%D0%BB%D0%B8/id6754563452 commit: УБРиБ
+https://apps.apple.com/ru/app/healthflow-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D0%BD%D0%B8%D0%BA-%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D1%8F/id6756132649 commit: Альфа Страхование
+https://apps.apple.com/ru/app/%D0%B7%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D1%8C%D0%B5-%D0%B8-%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/id6448322800 commit: СОГАЗ
+
+
+
+
+
 
