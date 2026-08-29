@@ -7,12 +7,25 @@ on:
     - cron: "0 6,14,22 * * *"
   workflow_dispatch: {}  # позволяет запускать вручную из вкладки Actions
 
+# Не даёт двум запускам работать одновременно и пушить параллельно — если
+# новый запуск стартует, пока предыдущий ещё не закончил, он встаёт в
+# очередь и ждёт (а не отменяет текущий и не запускается параллельно).
+# Без этого при долгом прогоне (много приложений/разработчиков) параллельные
+# запуски начинают пушить из разных версий main и получают
+# "non-fast-forward" при push.
+concurrency:
+  group: update-apps-registry
+  cancel-in-progress: false
+
 permissions:
   contents: write  # нужно, чтобы workflow мог закоммитить обновлённый apps.csv
 
 jobs:
   update:
     runs-on: ubuntu-latest
+    # Страховка на случай, если прогон где-то зависнет (например, из-за
+    # долгих ссылок на разработчиков) — не даёт очереди застрять навечно.
+    timeout-minutes: 540
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -29,7 +42,7 @@ jobs:
         run: python update_apps.py
 
       - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v5
+        uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "chore: автообновление реестра приложений"
           file_pattern: apps.csv
