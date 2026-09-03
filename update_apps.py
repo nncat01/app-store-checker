@@ -485,6 +485,17 @@ def process_developer_entry(entry: dict, order: list, rows: dict, check_regions:
 
 
 # ---------------------------------------------------------------------------
+# Сортировка
+# ---------------------------------------------------------------------------
+
+def sort_order_alphabetically(order: list, rows: dict) -> list:
+    """Сортирует список app_id по названию приложения (регистронезависимо).
+    Затрагивает вообще все строки в rows — включая добавленные вручную,
+    т.к. они тоже часть order/rows после read_existing_csv."""
+    return sorted(order, key=lambda app_id: (rows[app_id].get("Название (App Store)") or "").casefold())
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -535,7 +546,11 @@ def main():
         else:
             failed += 1
 
-    print(f"\nГотово: {ok} ок, {failed} с ошибкой/пропуском. Файл: {csv_path.resolve()}")
+    print(f"\nГотово: {ok} ок, {failed} с ошибкой/пропуском.")
+
+    order = sort_order_alphabetically(order, rows)
+    write_csv(csv_path, order, rows)
+    print(f"Таблица отсортирована по алфавиту. Файл: {csv_path.resolve()}")
 
 
 if __name__ == "__main__":
