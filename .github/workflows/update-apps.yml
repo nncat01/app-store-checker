@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     # Страховка на случай, если прогон где-то зависнет (например, из-за
     # долгих ссылок на разработчиков) — не даёт очереди застрять навечно.
-    timeout-minutes: 540
+    timeout-minutes: 180
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -38,11 +38,30 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Update registry
-        run: python update_apps.py
+      - name: Update registry and push (retries by recomputing on top of latest main)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push if changed
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "chore: автообновление реестра приложений"
-          file_pattern: apps.csv
+          for attempt in 1 2 3; do
+            python update_apps.py
+
+            git add apps.csv
+            if git diff --cached --quiet; then
+              echo "Изменений нет — нечего коммитить."
+              exit 0
+            fi
+            git commit -m "chore: автообновление реестра приложений"
+
+            if git push; then
+              echo "Запушено успешно (попытка $attempt)."
+              exit 0
+            fi
+
+            echo "Push отклонён (попытка $attempt/3) — main изменился, пока считали (например, из-за ручной правки apps.csv). Откатываюсь на актуальный main и пересчитываю заново с нуля — так надёжнее, чем текстово сшивать два независимо посчитанных CSV."
+            git fetch origin
+            git reset --hard origin/main
+          done
+
+          echo "main продолжает меняться быстрее, чем мы успеваем пересчитать (3 попытки не хватило). Ничего не потеряно — apps.csv в репозитории просто чуть отстанет, следующий плановый запуск подхватит."
+          exit 1
