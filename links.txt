@@ -12,9 +12,24 @@ https://apps.apple.com/ru/developer/wb-fze/id1763850349 #WB
 https://apps.apple.com/ru/developer/direct-cursus-computer-systems-trading/id1717598015 #Яндекс
 https://apps.apple.com/ru/developer/mikromobilnost-doo/id1710544560 #Яндекс
 https://apps.apple.com/ru/app/%D1%8F%D0%BD%D0%B4%D0%B5%D0%BA%D1%81-%D1%87%D0%B0%D0%B5%D0%B2%D1%8B%D0%B5-%D0%BD%D0%B0-%D0%BA%D0%B0%D1%80%D1%82%D1%83-%D0%BF%D0%BE-qr/id1513175603 #Яндекс Чаевые
+https://apps.apple.com/ru/developer/kronos-ooo/id1480706630 #Яндекс Такси
 
 https://apps.apple.com/ru/developer/ozon-ru/id407805001 #OZOM
-https://apps.apple.com/ru/developer/ozon-marketpleis-kazakhstan-too/id1818775178 #OZOM
+https://apps.apple.com/ru/developer/ozon-marketpleis-kazakhstan-too/id1818775178 #OZON
+
+https://apps.apple.com/ru/developer/llc-doublegis/id481627531 #2ГИС
+https://apps.apple.com/ru/developer/go-travel-un-limited/id498958867 #Авиасейлс
+https://apps.apple.com/ru/developer/x5-retail-group/id393332188 #X5 Retail Group
+https://apps.apple.com/ru/developer/%D0%B7%D0%B0%D0%BE-%D1%82%D0%B0%D0%BD%D0%B4%D0%B5%D1%80/id881463976 #ЗАО Тандер
+https://apps.apple.com/ru/developer/dixy/id1273384116 #DIXY
+https://apps.apple.com/ru/app/%D0%BC%D0%BE%D0%B9-%D0%B0%D1%88%D0%B0%D0%BD-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0-%D0%BF%D1%80%D0%BE%D0%B4%D1%83%D0%BA%D1%82%D0%BE%D0%B2/id1566122910 #Ашан
+https://apps.apple.com/ru/app/%D0%B0%D0%B7%D0%B1%D1%83%D0%BA%D0%B0-%D0%B2%D0%BA%D1%83%D1%81%D0%B0/id918296526 #Азбука вкуса
+https://apps.apple.com/ru/app/%D0%BA%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B5-%D0%B1%D0%B5%D0%BB%D0%BE%D0%B5-%D1%81%D0%BA%D0%B8%D0%B4%D0%BA%D0%B8-%D0%B8-%D0%B0%D0%BA%D1%86%D0%B8%D0%B8/id933816701 #Красное&Белое
+https://apps.apple.com/ru/developer/%D0%B3%D1%83%D0%BF-%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9-%D0%BC%D0%B5%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BB%D0%B8%D1%82%D0%B5%D0%BD/id1093391185 #ГУП Московский метрополитен
+https://apps.apple.com/ru/developer/%D0%B4%D0%B5%D0%BF%D0%B0%D1%80%D1%82%D0%B0%D0%BC%D0%B5%D0%BD%D1%82-%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B0-%D0%BC%D0%BE%D1%81%D0%BA%D0%B2%D1%8B/id575331173 #Департамент транспорта Москвы
+https://apps.apple.com/ru/app/%D0%BF%D0%BE%D0%B4%D0%BE%D1%80%D0%BE%D0%B6%D0%BD%D0%B8%D0%BA-%D1%81%D0%B0%D0%BD%D0%BA%D1%82-%D0%BF%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3/id6478869877 #Подорожник
+https://apps.apple.com/ru/developer/mobile-telesystems-public-joint-stock-company/id406999351 #МТС
+https://apps.apple.com/ru/developer/pjsc-vimpelcom/id563527205 #Вымпелком
 
 https://apps.apple.com/ru/app/%D0%BA%D0%B8%D0%BD%D0%BE-%D0%B4%D0%BE%D0%BC/id6753332416 commit: Movix
 https://apps.apple.com/ru/app/%D0%BE%D0%BA%D0%B5%D0%B9-%D0%B3%D0%B8%D0%BF%D0%B5%D1%80%D0%BC%D0%B0%D1%80%D0%BA%D0%B5%D1%82%D1%8B-%D0%B8-%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%B0/id1087812169 commit: Лента
