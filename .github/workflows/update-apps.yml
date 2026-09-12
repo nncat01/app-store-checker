@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     # Страховка на случай, если прогон где-то зависнет (например, из-за
     # долгих ссылок на разработчиков) — не даёт очереди застрять навечно.
-    timeout-minutes: 500
+    timeout-minutes: 1000
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
