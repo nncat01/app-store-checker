@@ -57,6 +57,7 @@ https://apps.apple.com/ru/app/id6799090729 commit: Т-Инвестиции
 https://apps.apple.com/ru/app/id6797494251 commit: Лента
 https://apps.apple.com/ru/app/id6782032088 commit: От Т-Банка
 https://apps.apple.com/ru/app/id6763622616 commit: СберМобайл
+6748306805 commit: Точка Банк
 
 
 
