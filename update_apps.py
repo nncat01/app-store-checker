@@ -32,6 +32,21 @@
 Такую дату можно вписать вручную прямо в CSV в формате "✗ (ДД.ММ.ГГГГ)" —
 скрипт её не тронет и не перезапишет, пока регион не станет снова доступен.
 
+Про проверку регионов (важно для скорости на больших списках): новое
+приложение (которого ещё нет в apps.csv) проверяется полностью, по всем
+29 регионам. Уже отслеживаемое — только по 5 приоритетным (RU/TR/IN/US/KZ),
+это в разы быстрее. Если при такой облегчённой проверке обнаруживается,
+что приложение только что пропало из приоритетного региона — это тревожный
+сигнал, и скрипт в этом же запуске проверяет оставшиеся 24 региона тоже.
+Флаг --full-regions заставляет проверять все 29 регионов у вообще всех
+приложений — полезно иногда прогонять отдельно, чтобы освежить данные по
+неприоритетным регионам, которые иначе не обновляются без тревоги.
+
+Пауза между запросами регионов самонастраивается: при признаках троттлинга
+(не-200 ответ от API) она растёт, при успешных запросах — возвращается к
+базовой. Такой ответ не путается с "приложение реально недоступно в
+регионе" — раньше это по ошибке считалось одним и тем же.
+
 Таблицу можно редактировать руками: строки приложений, которых нет в
 links.txt, скрипт не трогает вообще — так можно вручную завести запись
 о приложении, которого больше нет ни в одном сторе.
@@ -43,6 +58,7 @@ links.txt, скрипт не трогает вообще — так можно �
     python update_apps.py                       # links.txt -> apps.csv
     python update_apps.py --links other.txt --file other.csv
     python update_apps.py --no-regions           # без проверки регионов (быстрее)
+    python update_apps.py --full-regions         # все 29 регионов у всех, не только у новых
 """
 
 import argparse
@@ -88,11 +104,16 @@ _REST = [(c, _REST_RU[c]) for c in sorted(_REST_RU)]
 
 REGION_COUNTRIES = _PRIORITY + _CIS + _EU + _GREATER_CHINA + _REST
 
-# Пауза между запросами при проверке регионов. У публичного iTunes API нет
-# официальной документации по лимитам, но неофициально он глушит примерно
-# после 20 запросов в минуту с одного IP. 3.5 сек держит нас безопасно ниже
-# границы даже с учётом сетевых задержек и большого числа регионов (29).
-REGION_REQUEST_DELAY = 3.5
+# Базовая пауза между запросами при проверке регионов. У публичного iTunes
+# API нет официальной документации по лимитам. Вместо того чтобы гадать
+# точное безопасное значение (проверить это можно только вживую, а не в
+# офлайн-песочнице), пауза самонастраивается: см. check_region_availability —
+# при признаках троттлинга (не-200 ответ/ошибка) она временно растёт, а
+# после успешных запросов возвращается к этому базовому значению.
+REGION_REQUEST_DELAY = 3.0
+REGION_REQUEST_DELAY_MAX = 30.0
+
+PRIORITY_CODES = {code for code, _ in _PRIORITY}
 
 STATUS_AVAILABLE = "✓"
 STATUS_UNAVAILABLE = "✗"
@@ -214,34 +235,82 @@ def fetch_developer_apps(developer_id: str, country: str | None):
     return None
 
 
-def check_region_availability(app_id: str, known: dict | None = None) -> dict:
-    """Проверяет доступность в REGION_COUNTRIES. По одному запросу на регион
-    (кроме уже известных из `known`), с паузой между запросами. Возвращает
-    {код: True/False/None}, где None значит 'не удалось проверить сейчас'."""
+def check_region_availability(app_id: str, codes: list | None = None, known: dict | None = None) -> dict:
+    """Проверяет доступность по списку `codes` (по умолчанию — все
+    REGION_COUNTRIES). По одному запросу на регион (кроме уже известных из
+    `known`). Возвращает {код: True/False/None}, где None значит 'не удалось
+    проверить сейчас' (ошибка сети ИЛИ не-200 ответ — раньше не-200 по ошибке
+    трактовался как 'недоступно', из-за чего троттлинг API мог выглядеть как
+    настоящее удаление приложения из региона; теперь это честно 'неизвестно').
+
+    Пауза между запросами самонастраивается: после каждой ошибки/не-200
+    ответа (похоже на троттлинг) она удваивается (до REGION_REQUEST_DELAY_MAX),
+    а после следующего успешного запроса возвращается к базовому значению."""
+    codes = codes if codes is not None else REGION_COUNTRIES
     known = known or {}
     result = {}
-    for code, name_ru in REGION_COUNTRIES:
+    delay = REGION_REQUEST_DELAY
+    for code, name_ru in codes:
         if code in known:
             result[code] = known[code]
             continue
         try:
             resp = requests.get(LOOKUP_URL, params={"id": app_id, "country": code}, timeout=10)
-            result[code] = resp.ok and bool(resp.json().get("resultCount"))
+            if resp.ok:
+                result[code] = bool(resp.json().get("resultCount"))
+                delay = REGION_REQUEST_DELAY
+            else:
+                result[code] = None
+                delay = min(delay * 2, REGION_REQUEST_DELAY_MAX)
         except (requests.RequestException, ValueError):
             result[code] = None
+            delay = min(delay * 2, REGION_REQUEST_DELAY_MAX)
         print(f"      {code.upper():<3} {name_ru:<12} {OS_MARK[result[code]]}")
-        time.sleep(REGION_REQUEST_DELAY)
+        time.sleep(delay)
     return result
 
 
-def run_region_check(info: dict, check_regions: bool) -> dict:
+def detect_priority_removal(existing_row: dict, priority_result: dict) -> bool:
+    """True, если хотя бы один приоритетный регион по данным этой проверки
+    только что стал недоступен, а по прошлой записи в таблице был доступен —
+    сигнал, что стоит перепроверить приложение по всем 29 регионам."""
+    for code in PRIORITY_CODES:
+        if priority_result.get(code) is not False:
+            continue
+        prev_available, _ = parse_region_cell((existing_row or {}).get(code.upper(), ""))
+        if prev_available is True:
+            return True
+    return False
+
+
+def run_region_check(info: dict, existing_row: dict, check_regions: bool, force_full: bool = False) -> dict:
+    """Новое приложение (existing_row отсутствует) или --full-regions ->
+    полная проверка всех 29 регионов. Уже отслеживаемое приложение ->
+    только 5 приоритетных регионов (RU/TR/IN/US/KZ) — намного быстрее.
+    Если при этом обнаруживается, что приложение только что пропало из
+    приоритетного региона, — это тревожный сигнал, и остальные 24 региона
+    проверяются тоже, в этом же запуске."""
     if not check_regions:
         return {}
+
     resolved = info.get("_resolved_country")
     known = {resolved: True} if resolved in dict(REGION_COUNTRIES) else {}
-    eta_min = round(len(REGION_COUNTRIES) * REGION_REQUEST_DELAY / 60, 1)
-    print(f"    Проверяю {len(REGION_COUNTRIES)} регионов (~{eta_min} мин)...")
-    return check_region_availability(info["app_id"], known=known)
+
+    if force_full or existing_row is None:
+        eta_min = round(len(REGION_COUNTRIES) * REGION_REQUEST_DELAY / 60, 1)
+        print(f"    Полная проверка, {len(REGION_COUNTRIES)} регионов (~{eta_min} мин)...")
+        return check_region_availability(info["app_id"], codes=REGION_COUNTRIES, known=known)
+
+    print(f"    Проверяю {len(_PRIORITY)} приоритетных регионов...")
+    priority_result = check_region_availability(info["app_id"], codes=_PRIORITY, known=known)
+
+    if detect_priority_removal(existing_row, priority_result):
+        print("    ⚠ Пропажа из приоритетного региона — перепроверяю все 29 регионов на всякий случай.")
+        remaining_codes = [c for c in REGION_COUNTRIES if c[0] not in PRIORITY_CODES]
+        remaining_result = check_region_availability(info["app_id"], codes=remaining_codes, known=known)
+        priority_result.update(remaining_result)
+
+    return priority_result
 
 
 # ---------------------------------------------------------------------------
@@ -413,7 +482,7 @@ def build_row(info: dict, existing_row: dict, region_result: dict, comment: str 
 # Обработка записей
 # ---------------------------------------------------------------------------
 
-def process_app_entry(entry: dict, order: list, rows: dict, check_regions: bool, claimed: set) -> bool:
+def process_app_entry(entry: dict, order: list, rows: dict, check_regions: bool, claimed: set, force_full: bool = False) -> bool:
     app_id_hint, country, comment = entry["id"], entry["country"], entry["comment"]
 
     try:
@@ -443,16 +512,17 @@ def process_app_entry(entry: dict, order: list, rows: dict, check_regions: bool,
         f"({info['app_id']}, мин. iOS {info['min_ios']}, {info['size_mb']} МБ, "
         f"iOS {OS_MARK[info['ios']]} / iPadOS {OS_MARK[info['ipados']]})"
     )
-    region_result = run_region_check(info, check_regions)
+    existing_row = rows.get(info["app_id"])
+    region_result = run_region_check(info, existing_row, check_regions, force_full=force_full)
 
     if info["app_id"] not in rows:
         order.append(info["app_id"])
-    rows[info["app_id"]] = build_row(info, rows.get(info["app_id"]), region_result, comment)
+    rows[info["app_id"]] = build_row(info, existing_row, region_result, comment)
     claimed.add(info["app_id"])
     return True
 
 
-def process_developer_entry(entry: dict, order: list, rows: dict, check_regions: bool, claimed: set) -> int:
+def process_developer_entry(entry: dict, order: list, rows: dict, check_regions: bool, claimed: set, force_full: bool = False) -> int:
     dev_id, country, comment = entry["id"], entry["country"], entry["comment"]
 
     try:
@@ -475,10 +545,11 @@ def process_developer_entry(entry: dict, order: list, rows: dict, check_regions:
             f"    {info['name']} v{info['version']} ({info['app_id']}, "
             f"iOS {OS_MARK[info['ios']]} / iPadOS {OS_MARK[info['ipados']]})"
         )
-        region_result = run_region_check(info, check_regions)
+        existing_row = rows.get(info["app_id"])
+        region_result = run_region_check(info, existing_row, check_regions, force_full=force_full)
         if info["app_id"] not in rows:
             order.append(info["app_id"])
-        rows[info["app_id"]] = build_row(info, rows.get(info["app_id"]), region_result, comment)
+        rows[info["app_id"]] = build_row(info, existing_row, region_result, comment)
         claimed.add(info["app_id"])
         added += 1
     return added
@@ -504,11 +575,19 @@ def main():
     parser.add_argument("--links", default="links.txt", help="Файл со ссылками (по умолчанию links.txt)")
     parser.add_argument("--file", default="apps.csv", help="Итоговый CSV-файл (по умолчанию apps.csv)")
     parser.add_argument("--no-regions", action="store_true", help="Не проверять регионы (быстрее)")
+    parser.add_argument(
+        "--full-regions", action="store_true",
+        help="Полная проверка всех 29 регионов для КАЖДОГО приложения, а не только приоритетных "
+             "у уже отслеживаемых. Полезно иногда прогонять отдельно (например, раз в неделю), "
+             "чтобы освежить данные по неприоритетным регионам, которые иначе обновляются только "
+             "при тревоге по приоритетным."
+    )
     args = parser.parse_args()
 
     links_path = Path(args.links)
     csv_path = Path(args.file)
     check_regions = not args.no_regions
+    force_full = args.full_regions
 
     entries = parse_links_file(links_path)
     if not entries:
@@ -528,7 +607,7 @@ def main():
     for entry in app_entries:
         tag = f"  [{entry['comment']}]" if entry["comment"] else ""
         print(f"\n{entry['raw']}{tag}")
-        if process_app_entry(entry, order, rows, check_regions, claimed):
+        if process_app_entry(entry, order, rows, check_regions, claimed, force_full=force_full):
             ok += 1
             write_csv(csv_path, order, rows)  # сохраняем после каждого — не теряем прогресс при сбое
         else:
@@ -539,7 +618,7 @@ def main():
     for entry in dev_entries:
         tag = f"  [{entry['comment']}]" if entry["comment"] else ""
         print(f"\n{entry['raw']}{tag}")
-        added = process_developer_entry(entry, order, rows, check_regions, claimed)
+        added = process_developer_entry(entry, order, rows, check_regions, claimed, force_full=force_full)
         if added:
             ok += added
             write_csv(csv_path, order, rows)
