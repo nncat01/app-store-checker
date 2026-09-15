@@ -58,6 +58,8 @@ https://apps.apple.com/ru/app/id6797494251 commit: Лента
 https://apps.apple.com/ru/app/id6782032088 commit: От Т-Банка
 https://apps.apple.com/ru/app/id6763622616 commit: СберМобайл
 6748306805 commit: Точка Банк
+https://apps.apple.com/ru/app/id6803087901 commit: Совкомбанк
+https://apps.apple.com/us/app/id6789509535 commit: Рокетбанк
 
 # Original Banks
 https://apps.apple.com/ru/app/%D0%BE%D1%82%D0%BF-%D0%B1%D0%B0%D0%BD%D0%BA-%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD/id1483041733 #OTP
