@@ -81,6 +81,7 @@ https://apps.apple.com/ru/app/id6771044537 commit: СберИнвестиции
 https://apps.apple.com/tr/app/atoy/id6450411829 сommit: Yota
 https://apps.apple.com/tr/app/spotluma/id6755181069 commit: Т-Банк
 https://apps.apple.com/ru/app/id6807427324 commit: Финуслуги
+https://apps.apple.com/ru/app/kafario/id6803519628 commit: ВТБ Инвестиции
 
 
 
