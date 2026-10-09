@@ -83,6 +83,7 @@ https://apps.apple.com/tr/app/spotluma/id6755181069 commit: Т-Банк
 https://apps.apple.com/ru/app/id6807427324 commit: Финуслуги
 https://apps.apple.com/ru/app/kafario/id6803519628 commit: ВТБ Инвестиции
 https://apps.apple.com/ru/app/id6806143347 commit: Альфа Инвестиции
+https://apps.apple.com/ru/app/id6796680119 commit: Лента
 
 
 
