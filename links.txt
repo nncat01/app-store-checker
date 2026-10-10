@@ -84,6 +84,6 @@ https://apps.apple.com/ru/app/id6807427324 commit: Финуслуги
 https://apps.apple.com/ru/app/kafario/id6803519628 commit: ВТБ Инвестиции
 https://apps.apple.com/ru/app/id6806143347 commit: Альфа Инвестиции
 https://apps.apple.com/ru/app/id6796680119 commit: Лента
-
+https://apps.apple.com/us/app/id6805045741 commit: ВК Музыка
 
 
