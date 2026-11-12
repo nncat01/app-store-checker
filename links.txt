@@ -86,4 +86,5 @@ https://apps.apple.com/ru/app/id6806143347 commit: Альфа Инвестици
 https://apps.apple.com/ru/app/id6796680119 commit: Лента
 https://apps.apple.com/us/app/id6805045741 commit: ВК Музыка
 https://apps.apple.com/ru/app/id6812428354 commit: MAX
+https://apps.apple.com/ru/app/id6766808407 commit: Умный Дом Сбера
 
